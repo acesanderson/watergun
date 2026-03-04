@@ -1,7 +1,7 @@
-import watergun.server.logging_config
+from watergun.server import logging_config
 
 # To comfort my IDE
-_ = watergun.server.logging_config
+_ = logging_config
 
 
 def main():
@@ -12,7 +12,7 @@ def main():
     print_logo()
 
     uvicorn.run(
-        "watergun.server.openwebui:app",
+        "watergun.server.watergun:app",
         host="0.0.0.0",
         port=8081,
         reload=True,
