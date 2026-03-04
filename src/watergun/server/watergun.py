@@ -3,7 +3,7 @@ from contextlib import asynccontextmanager
 from watergun.api.brave_web_search_api import BraveWebSearchAPI
 from watergun.api.obsidian_api import ObsidianAPI
 from watergun.api.fetch_api import FetchAPI
-from watergun.api.watergun_server_api import WaterGunServerAPI
+from watergun.api.watergun_server_api import WatergunServerAPI
 
 import logging
 
@@ -28,7 +28,7 @@ class WatergunServer:
 
         return FastAPI(
             title="Watergun API Server",
-            description="Universal content ingestion and LLM processing API",
+            description="Tools server for Open WebUI",
             version="1.0.0",
             lifespan=lifespan,
         )
@@ -41,7 +41,7 @@ class WatergunServer:
         BraveWebSearchAPI(self.app).register_routes()
         ObsidianAPI(self.app).register_routes()
         FetchAPI(self.app).register_routes()
-        WaterGunServerAPI(self.app).register_routes()
+        WatergunServerAPI(self.app).register_routes()
 
     def _register_middleware(self):
         """
