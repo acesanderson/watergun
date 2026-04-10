@@ -10,7 +10,9 @@ class ObsidianAPI:
         Register all conduit routes
         """
 
-        @self.app.get("/obsidian/get_obsidian_doc")
+        @self.app.get(
+            "/obsidian/get_obsidian_doc", summary="Get an Obsidian document by filename"
+        )
         async def get_obsidian_doc(filename: str) -> str:
             from watergun.services.obsidian_service.get_obsidian_doc_service import (
                 get_obsidian_doc_service,

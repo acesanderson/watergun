@@ -10,7 +10,11 @@ class BraveWebSearchAPI:
         Register all conduit routes
         """
 
-        @self.app.get("/search/brave_web_search")
+        @self.app.get(
+            "/search/brave_web_search",
+            summary="Search the web using Brave Search",
+            description="Search the web using Brave Search; returns a list of search results with titles, snippets, and URLs.",
+        )
         async def brave_web_search(query: str, page: int = 1) -> str:
             from watergun.services.brave_web_search_service import (
                 brave_web_search_service,
